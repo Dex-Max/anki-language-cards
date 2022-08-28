@@ -1,7 +1,7 @@
-const fs = require('fs')
+const fs = require('fs');
 const AnkiExport = require('anki-apkg-export').default
 
-const exportDeck = () => {
+const exportDeck = (name, cards) => {
 	const apkg = new AnkiExport('deck-name')
 
 	apkg.addCard('card 1 front', 'card 1 back');
@@ -16,4 +16,4 @@ const exportDeck = () => {
 		.catch(err => console.log(err.stack || err));
 }
 
-export default exportDeck;
+module.exports = exportDeck;
