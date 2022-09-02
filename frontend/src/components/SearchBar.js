@@ -6,34 +6,26 @@ import supportedLanguages from "../supportedLanguages";
 import getSupportedLanguages from "../supportedLanguages";
 import axios from 'axios'
 
-const SearchBar = () => {
-	const [language, setLanguage] = useState('');
-	const [supportedLanguages, setSupportedLanguages] = useState([]);
+const SearchBar = ({ changeLanguage, languageList }) => {
 	const handleLanguageChange = (event) => {
-		setLanguage(event.target.value);
+		changeLanguage(event.target.value);
 	};
 
-	useEffect(() => {
-		axios.get('http://localhost:3001/languages')
-			.then(res => {
-				setSupportedLanguages(res.data);
-			})
-	}, [])
-
-	if(supportedLanguages.length) {
+	if(languageList.length) {
 		return (
 			<FormControl sx={{ 'width': '100%'}}>
 				<InputLabel id="language-select-label">Target Language</InputLabel>
 				<Select
 					labelId="language-select-label"
 					id="language-select"
-					value={language}
+					name="language"
+					defaultValue=""
 					onChange={handleLanguageChange}
 				>
 					{
-						supportedLanguages.map((language) => (
-							<MenuItem key={language.code}>{language.name}</MenuItem>
-						))
+						languageList.map((language) => {
+							return <MenuItem key={language.code} value={language.code}>{language.name}</MenuItem>
+						})
 					}
 				</Select>
 			</FormControl>

@@ -3,7 +3,7 @@ import TextField from "./TextField";
 import CardList from "./CardList";
 import {useState} from "react";
 
-const CardForm = () => {
+const CardForm = ({ language }) => {
 	const [cards, setCards] = useState([]);
 
 	const addCard = (event) => {
