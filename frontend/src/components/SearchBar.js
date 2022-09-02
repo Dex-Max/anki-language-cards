@@ -22,7 +22,7 @@ const SearchBar = () => {
 
 	if(supportedLanguages.length) {
 		return (
-			<FormControl>
+			<FormControl sx={{ 'width': '100%'}}>
 				<InputLabel id="language-select-label">Target Language</InputLabel>
 				<Select
 					labelId="language-select-label"
