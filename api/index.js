@@ -29,8 +29,6 @@ app.post('/export',async (req, res) => {
 
 	const exportData = fs.readFileSync(`${__dirname}/${name}`, null);
 
-	//const file = new LocalFileData(`${__dirname}/output.apkg`);
-	//res.send(new Buffer(file, 'binary'));
 	res.send(exportData);
 })
 

@@ -4,7 +4,9 @@ import Button from '@mui/material/Button'
 const ExportButton = ({ cards }) => {
 	const handleExportClick = async () => {
 		console.log("sending request");
-		const res = await fetch('http://localhost:3001/export', { method: 'POST' });
+		const res = await fetch('http://localhost:3001/export', {
+			method: 'POST'
+		});
 
 		console.log(res);
 		res.blob().then(blob => {
