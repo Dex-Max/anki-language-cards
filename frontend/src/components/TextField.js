@@ -1,8 +1,16 @@
 import { IconButton, InputBase, Paper} from "@mui/material";
 import AddIcon from '@mui/icons-material/Add';
+import {useState} from "react";
 
 const TextField = () => {
+	const [word, setWord] = useState("");
+	const handleWordChange = (event) => {
+		setWord(event.target.value);
+	}
 
+	const handleAddWordClick = () => {
+
+	}
 
 	return (
 		<Paper
@@ -11,8 +19,12 @@ const TextField = () => {
 			<InputBase
 				sx={{ ml: 1, flex: 1 }}
 				placeholder="Enter word"
+				value={word}
+				onChange={handleWordChange}
 			/>
-			<IconButton type="button" sx={{ p: '10px' }}>
+			<IconButton
+				onClick={handleAddWordClick}
+				type="button" sx={{ p: '10px' }}>
 				<AddIcon/>
 			</IconButton>
 		</Paper>
