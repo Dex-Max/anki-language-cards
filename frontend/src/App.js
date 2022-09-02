@@ -1,21 +1,17 @@
 import './App.css';
-import { Container, Grid } from "@mui/material";
-import CardList from "./components/CardList";
+import { Container } from "@mui/material";
 import CardForm from "./components/CardForm";
 import ExportButton from "./components/ExportButton";
 import SearchBar from "./components/SearchBar";
-import {useEffect, useState} from "react";
-import axios from "axios";
+import { useEffect, useState } from "react";
+import { getSupportedLanguages } from "./translation"
 
 const App = () => {
 	const [language, setLanguage] = useState("");
 	const [languageList, setLanguageList] = useState([]);
 
 	useEffect(() => {
-		axios.get('http://localhost:3001/languages')
-			.then(res => {
-				setLanguageList(res.data);
-			})
+		getSupportedLanguages().then(res => setLanguageList(res.data));
 	}, [])
 
 	const changeLanguage = (lang) => {

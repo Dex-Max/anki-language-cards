@@ -2,15 +2,20 @@ import {Box, Paper} from "@mui/material";
 import TextField from "./TextField";
 import CardList from "./CardList";
 import {useState} from "react";
+import { translate } from "../translation"
 
 const CardForm = ({ language }) => {
 	const [cards, setCards] = useState([]);
 
 	const addCard = (event) => {
 		event.preventDefault();
-		console.log(event.target);
-		console.log(event.target.word.value)
-		setCards([...cards, {"word": event.target.word.value}]);
+		const word = event.target.word.value;
+		translate(language, word).then(res => {
+			setCards([...cards, {
+				"word": word,
+				"translation": res.data.translation
+			}])
+		})
 	}
 
 	return (
