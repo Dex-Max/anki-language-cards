@@ -17,6 +17,7 @@ const SearchBar = () => {
 		axios.get('http://localhost:3001/languages')
 			.then(res => {
 				setSupportedLanguages(res.data);
+				console.log('setting languages');
 			})
 	}, [])
 
@@ -39,7 +40,7 @@ const SearchBar = () => {
 			</FormControl>
 		)
 	} else {
-		return <div></div>
+		return <div>Loading Languages</div>
 	}
 }
 
