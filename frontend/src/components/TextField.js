@@ -1,33 +1,40 @@
-import { IconButton, InputBase, Paper} from "@mui/material";
+import {FormControl, IconButton, InputBase, Paper} from "@mui/material";
 import AddIcon from '@mui/icons-material/Add';
 import {useState} from "react";
 
-const TextField = () => {
+const TextField = ({ addCard }) => {
 	const [word, setWord] = useState("");
+
 	const handleWordChange = (event) => {
 		setWord(event.target.value);
 	}
 
-	const handleAddWordClick = () => {
-
+	const handleSubmit = (event) => {
+		setWord("");
+		addCard(event);
 	}
+
 
 	return (
 		<Paper
 			sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width:500 }}
 		>
-			<InputBase
-				sx={{ ml: 1, flex: 1 }}
-				placeholder="Enter word"
-				value={word}
-				onChange={handleWordChange}
-			/>
-			<IconButton
-				onClick={handleAddWordClick}
-				type="button" sx={{ p: '10px' }}>
-				<AddIcon/>
-			</IconButton>
+			<form onSubmit={handleSubmit}>
+				<InputBase
+					sx={{ ml: 1, flex: 1 }}
+					placeholder="Enter word"
+					name="word"
+					value={word}
+					onChange={handleWordChange}
+				/>
+				<IconButton
+					type="submit"
+					sx={{ p: '10px' }}>
+					<AddIcon/>
+				</IconButton>
+			</form>
 		</Paper>
+
 		/*
 		<Paper
 			component="form"

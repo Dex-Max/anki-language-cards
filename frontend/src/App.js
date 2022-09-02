@@ -1,26 +1,16 @@
 import './App.css';
+import { Container, Grid } from "@mui/material";
+import CardList from "./components/CardList";
+import CardForm from "./components/CardForm";
+import ExportButton from "./components/ExportButton";
 import SearchBar from "./components/SearchBar";
-import ExportButton from "./components/ExportButton"
-import { Paper, Container, Grid } from "@mui/material";
-import CustomizedInputBase from "./components/MapInput";
-import TextField from "./components/TextField"
 
 const App = () => {
 	return (
 		<Container>
-			<Grid container>
-				<Grid item xs={12}>
-					<SearchBar/>
-				</Grid>
-				<Grid item xs={9}>
-					<TextField/>
-				</Grid>
-				<Grid item xs={3}>
-					<ExportButton/>
-				</Grid>
-			</Grid>
-
-
+			<SearchBar/>
+			<CardForm/>
+			<ExportButton/>
 
 		</Container>
 	)

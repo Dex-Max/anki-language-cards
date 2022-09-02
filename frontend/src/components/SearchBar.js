@@ -7,8 +7,8 @@ import getSupportedLanguages from "../supportedLanguages";
 import axios from 'axios'
 
 const SearchBar = () => {
-	const [language, setLanguage] = React.useState('');
-	const [supportedLanguages, setSupportedLanguages] = React.useState([]);
+	const [language, setLanguage] = useState('');
+	const [supportedLanguages, setSupportedLanguages] = useState([]);
 	const handleLanguageChange = (event) => {
 		setLanguage(event.target.value);
 	};

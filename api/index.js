@@ -8,7 +8,7 @@ const exportDeck = require('./export');
 const app = express()
 const translate = new Translate();
 
-app.use(cors);
+app.use(cors());
 app.use(express.json());
 
 app.get('/languages', async (req, res) => {
