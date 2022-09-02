@@ -2,7 +2,7 @@ import {FormControl, IconButton, InputBase, Paper} from "@mui/material";
 import AddIcon from '@mui/icons-material/Add';
 import {useState} from "react";
 
-const TextField = ({ addCard }) => {
+const TextField = ({ submitWord }) => {
 	const [word, setWord] = useState("");
 
 	const handleWordChange = (event) => {
@@ -11,7 +11,7 @@ const TextField = ({ addCard }) => {
 
 	const handleSubmit = (event) => {
 		setWord("");
-		addCard(event);
+		submitWord(event);
 	}
 
 

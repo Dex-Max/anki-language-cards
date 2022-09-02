@@ -3,12 +3,11 @@ import Button from '@mui/material/Button'
 
 const ExportButton = ({ cards }) => {
 	const handleExportClick = async () => {
-		console.log("sending request");
 		const res = await fetch('http://localhost:3001/export', {
-			method: 'POST'
+			method: 'POST',
+			body: cards
 		});
 
-		console.log(res);
 		res.blob().then(blob => {
 			let url = window.URL.createObjectURL(blob);
 			let a = document.createElement('a');

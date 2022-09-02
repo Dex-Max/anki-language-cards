@@ -9,6 +9,7 @@ import { getSupportedLanguages } from "./translation"
 const App = () => {
 	const [language, setLanguage] = useState("");
 	const [languageList, setLanguageList] = useState([]);
+	const [cards, setCards] = useState([]);
 
 	useEffect(() => {
 		getSupportedLanguages().then(res => setLanguageList(res.data));
@@ -19,11 +20,15 @@ const App = () => {
 		console.log(`Language changed to ${lang}`);
 	}
 
+	const addCard = (card) => {
+		setCards([...cards, card]);
+	}
+
 	return (
 		<Container>
 			<SearchBar languageList={languageList} changeLanguage={changeLanguage}/>
-			<CardForm language={language}/>
-			<ExportButton/>
+			<CardForm language={language} cards={cards} addCard={addCard}/>
+			<ExportButton cards={cards}/>
 		</Container>
 	)
 }
