@@ -15,23 +15,21 @@ app.get('/languages', async (req, res) => {
 	let [languages] = await translate.getLanguages();
 
 	res.json(languages);
-})
+});
 
 app.post('/translate', async (req, res, err) => {
 	const {text, language} = req.body;
 	console.log(text, language)
 	let [translation] = await translate.translate(text, language);
 	res.json({"translation": translation});
-})
+});
 
-app.post('/export',async (req, res) => {
+app.post('/export', async (req, res) => {
 	const { name, cards } = req.body;
-	exportDeck(name, cards);
-
-	const exportData = fs.readFileSync(`${__dirname}/${name}`, null);
-
+	await exportDeck(name, cards);
+	const exportData = fs.readFileSync(`${__dirname}/${name}.apkg`, null);
 	res.send(exportData);
-})
+});
 
 app.post('/download', function(req, res){
 	const file = `${__dirname}/output.apkg`;
@@ -41,4 +39,4 @@ app.post('/download', function(req, res){
 
 app.listen(3001, () => {
 	console.log('Listening Port 3001');
-})
+});
