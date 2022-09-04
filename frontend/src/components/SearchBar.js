@@ -1,10 +1,6 @@
 import {FormControl, InputLabel} from "@mui/material";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
-import React, {useState, useEffect} from "react";
-import supportedLanguages from "../translation";
-import getSupportedLanguages from "../translation";
-import axios from 'axios'
 
 const SearchBar = ({ changeLanguage, languageList }) => {
 	const handleLanguageChange = (event) => {

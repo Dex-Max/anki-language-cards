@@ -1,8 +1,6 @@
-import {useState} from "react";
-import {Card, CardContent, Container, Paper, Typography} from "@mui/material";
+import {Card, CardContent, Container, Typography} from "@mui/material";
 
 const CardList = ({ cards }) => {
-	console.log(cards)
 	if(cards.length){
 		return (
 			<Container>

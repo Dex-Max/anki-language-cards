@@ -1,7 +1,6 @@
 const express = require('express');
 const fs = require('fs');
 const cors = require('cors');
-const {default: AnkiExport} = require("anki-apkg-export");
 const {Translate} = require('@google-cloud/translate').v2;
 const exportDeck = require('./export');
 
@@ -17,7 +16,7 @@ app.get('/languages', async (req, res) => {
 	res.json(languages);
 });
 
-app.post('/translate', async (req, res, err) => {
+app.post('/translate', async (req, res) => {
 	const {text, language} = req.body;
 	console.log(text, language)
 	let [translation] = await translate.translate(text, language);
@@ -26,6 +25,7 @@ app.post('/translate', async (req, res, err) => {
 
 app.post('/export', async (req, res) => {
 	const { name, cards } = req.body;
+	console.log(req.body)
 	await exportDeck(name, cards);
 	const exportData = fs.readFileSync(`${__dirname}/${name}.apkg`, null);
 	res.send(exportData);

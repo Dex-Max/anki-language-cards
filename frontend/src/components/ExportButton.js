@@ -3,10 +3,17 @@ import Button from '@mui/material/Button'
 
 const ExportButton = ({ cards }) => {
 	const handleExportClick = async () => {
-		console.log(cards)
+		console.log("Exporting cards: ", cards)
 		const res = await fetch('http://localhost:3001/export', {
 			method: 'POST',
-			body: { name: "deck.apkg", cards: cards }
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+				name: "deck",
+				cards: cards
+			})
 		});
 
 		res.blob().then(blob => {

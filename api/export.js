@@ -3,7 +3,7 @@ const AnkiExport = require('anki-apkg-export').default
 
 const exportDeck = async (name, cards) => {
 	const apkg = new AnkiExport(name);
-
+	console.log(name, cards);
 	for(const card of cards) {
 		console.log(card)
 		apkg.addCard(card.translation, card.word);

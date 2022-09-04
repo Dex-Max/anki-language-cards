@@ -11,6 +11,8 @@ const App = () => {
 	const [languageList, setLanguageList] = useState([]);
 	const [cards, setCards] = useState([]);
 
+	console.log(cards)
+
 	useEffect(() => {
 		getSupportedLanguages().then(res => setLanguageList(res.data));
 	}, [])

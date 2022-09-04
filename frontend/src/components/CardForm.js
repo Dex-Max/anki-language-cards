@@ -1,4 +1,4 @@
-import {Box, Paper} from "@mui/material";
+import { Box } from "@mui/material";
 import TextField from "./TextField";
 import CardList from "./CardList";
 import { translate } from "../translation"
