@@ -1,5 +1,5 @@
 import './App.css';
-import { Container } from "@mui/material";
+import { Container, createTheme, ThemeProvider, CssBaseline } from "@mui/material";
 import CardForm from "./components/CardForm";
 import ExportButton from "./components/ExportButton";
 import SearchBar from "./components/SearchBar";
@@ -11,7 +11,12 @@ const App = () => {
 	const [languageList, setLanguageList] = useState([]);
 	const [cards, setCards] = useState([]);
 
-	console.log(cards)
+	const theme = createTheme({
+		palette: {
+			mode: "dark"
+		}
+	})
+
 
 	useEffect(() => {
 		getSupportedLanguages().then(res => setLanguageList(res.data));
@@ -27,11 +32,14 @@ const App = () => {
 	}
 
 	return (
-		<Container>
-			<SearchBar languageList={languageList} changeLanguage={changeLanguage}/>
-			<CardForm language={language} cards={cards} addCard={addCard}/>
-			<ExportButton cards={cards}/>
-		</Container>
+		<ThemeProvider theme={theme}>
+			<CssBaseline/>
+			<Container>
+				<SearchBar languageList={languageList} changeLanguage={changeLanguage}/>
+				<CardForm language={language} cards={cards} addCard={addCard}/>
+				<ExportButton cards={cards}/>
+			</Container>
+		</ThemeProvider>
 	)
 }
 
