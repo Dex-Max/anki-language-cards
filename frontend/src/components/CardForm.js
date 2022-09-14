@@ -17,7 +17,7 @@ const CardForm = ({ language, cards, addCard }) => {
 	}
 
 	return (
-		<Box>
+		<Box sx={{}}>
 			<TextField submitWord={submitWord}/>
 			<CardList cards={cards}/>
 		</Box>

@@ -1,3 +1,4 @@
+import './TextField.css'
 import { IconButton, InputBase, Paper} from "@mui/material";
 import AddIcon from '@mui/icons-material/Add';
 import {useState} from "react";
@@ -14,12 +15,9 @@ const TextField = ({ submitWord }) => {
 		submitWord(event);
 	}
 
-
 	return (
-		<Paper
-			sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width:500 }}
-		>
-			<form onSubmit={handleSubmit}>
+		<Paper sx={{width: '50%'}}>
+			<form onSubmit={handleSubmit} className="form">
 				<InputBase
 					sx={{ ml: 1, flex: 1 }}
 					placeholder="Enter word"

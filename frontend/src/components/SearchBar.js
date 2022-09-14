@@ -9,7 +9,7 @@ const SearchBar = ({ changeLanguage, languageList }) => {
 
 	if(languageList.length) {
 		return (
-			<FormControl sx={{ margin: '25px', width: '100%'}}>
+			<FormControl sx={{ margin: '25px', width: '25%'}}>
 				<InputLabel id="language-select-label">Target Language</InputLabel>
 				<Select
 					labelId="language-select-label"
