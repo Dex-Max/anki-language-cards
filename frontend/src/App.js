@@ -31,12 +31,16 @@ const App = () => {
 		setCards([...cards, card]);
 	}
 
+	const deleteCard = (word) => {
+		setCards(cards.filter(card => card.word !== word))
+	}
+
 	return (
 		<ThemeProvider theme={theme}>
 			<CssBaseline/>
 			<Container>
 				<SearchBar languageList={languageList} changeLanguage={changeLanguage}/>
-				<CardForm language={language} cards={cards} addCard={addCard}/>
+				<CardForm language={language} cards={cards} addCard={addCard} deleteCard={deleteCard}/>
 				<ExportButton cards={cards}/>
 			</Container>
 		</ThemeProvider>

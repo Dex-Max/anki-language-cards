@@ -1,6 +1,7 @@
-import {Card, CardContent, Container, Typography} from "@mui/material";
+import {Card, CardContent, Container, IconButton, Typography} from "@mui/material";
+import DeleteIcon from '@mui/icons-material/Delete';
 
-const CardList = ({ cards }) => {
+const CardList = ({ cards, deleteCard }) => {
 	if(cards.length){
 		return (
 			<Container>
@@ -13,6 +14,9 @@ const CardList = ({ cards }) => {
 											{card.word} {card.translation}
 										</Typography>
 									</CardContent>
+									<IconButton onClick={() => deleteCard(card.word)}>
+										<DeleteIcon/>
+									</IconButton>
 								</Card>
 							)
 					})

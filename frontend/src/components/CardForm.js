@@ -3,7 +3,7 @@ import TextField from "./TextField";
 import CardList from "./CardList";
 import { translate } from "../translation"
 
-const CardForm = ({ language, cards, addCard }) => {
+const CardForm = ({ language, cards, addCard, deleteCard }) => {
 	const submitWord = (event) => {
 		event.preventDefault();
 		const word = event.target.word.value;
@@ -17,9 +17,9 @@ const CardForm = ({ language, cards, addCard }) => {
 	}
 
 	return (
-		<Box sx={{}}>
+		<Box>
 			<TextField submitWord={submitWord}/>
-			<CardList cards={cards}/>
+			<CardList cards={cards} deleteCard={deleteCard}/>
 		</Box>
 	)
 }
